@@ -4,8 +4,14 @@ from youtube_search import YoutubeSearch
 from youtube_dl import YoutubeDL
 from apscheduler.schedulers.blocking import BlockingScheduler
 import sys
+import logging
 
 
+logging.basicConfig(
+    format='%(asctime)s %(levelname)-8s %(message)s',
+    level=logging.INFO,
+    datefmt='%Y-%m-%d %H:%M:%S')
+    
 audio_downloader = YoutubeDL({'format':'bestaudio', 'outtmpl': '%(title)s.%(ext)s', 'download_archive': 'download_archive_fn', 'postprocessors': [{'key': 'FFmpegExtractAudio','preferredcodec': 'mp3','preferredquality': '320',}],})
 download_archive_fn = '/app/archive'
 
