@@ -28,4 +28,3 @@ def findYT():
 scheduler = BlockingScheduler(timezone="Europe/Zagreb")
 scheduler.add_job(findYT, 'interval', seconds=120, max_instances=1)
 scheduler.start()
-
