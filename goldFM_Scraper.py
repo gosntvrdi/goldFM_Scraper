@@ -9,6 +9,7 @@ import sys
 audio_downloader = YoutubeDL({'format':'bestaudio', 'outtmpl': '%(title)s.%(ext)s', 'download_archive': 'download_archive_fn', 'postprocessors': [{'key': 'FFmpegExtractAudio','preferredcodec': 'mp3','preferredquality': '320',}],})
 download_archive_fn = '/app/archive'
 
+
 def findYT():
     url2 = ('http://live.goldfm.hr:8068/played.html?sid=1')
     df = pd.read_html(url2)[1][1][1]
